@@ -1,0 +1,62 @@
+
+>
+java:S1148v"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+k
+java:S2095…"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(·ë¡ãøÿÿÿÿ
+Q
+java:S1143š"5Remove this return statement from this finally block.(±Æ‘şÿÿÿÿ
+?
+java:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+]
+java:S1192#"GDefine a constant instead of duplicating this literal "emp_id" 3 times.(œıà
+>
+java:S1148O"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+c
+java:S1192$"HDefine a constant instead of duplicating this literal "manager" 3 times.(‘ŒĞúùÿÿÿÿ
+b
+java:S2095>"GUse try-with-resources or close this "Statement" in a "finally" clause.(Ë«Æşûÿÿÿÿ
+]
+java:S2095"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…
+?
+java:S1148•"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+?
+java:S1148µ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+?
+java:S1148»"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+e
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÀÖĞ½
+^
+java:S2095§"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ªŸ–
+>
+java:S1148("#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+k
+java:S2095¥"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Í­ÂÙùÿÿÿÿ
+P
+java:S1143y"5Remove this return statement from this finally block.(±Æ‘şÿÿÿÿ
+_
+java:S1192!"IDefine a constant instead of duplicating this literal "username" 5 times.(½™‹Á
+B
+java:S1168Æ"+Return an empty collection instead of null.(¥¹ï
+>
+java:S1148p"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+_
+java:S1192 "IDefine a constant instead of duplicating this literal "jobtitle" 3 times.(¡Ë€Ö
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢ôıûşÿÿÿÿ
+K
+java:S1143Y"5Remove this return statement from this finally block.(÷ÿ˜…
+\
+java:S1192"FDefine a constant instead of duplicating this literal "fname" 3 times.(€Ü›ï
+]
+java:S2095?"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(‚µŠ¯
+j
+java:S2095f"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(·ë¡ãøÿÿÿÿ
+>
+java:S1148."#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+\
+java:S1192"FDefine a constant instead of duplicating this literal "lname" 3 times.(İÑ º
+>
+java:S1148U"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+B
+java:S1168Í"+Return an empty collection instead of null.(¥¹ï
+^
+java:S1192"HDefine a constant instead of duplicating this literal "address" 3 times.(Å÷¼ğ

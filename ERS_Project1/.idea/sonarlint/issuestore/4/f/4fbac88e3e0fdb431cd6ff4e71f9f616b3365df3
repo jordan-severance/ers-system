@@ -1,0 +1,14 @@
+
+r
+java:S1989"VHandle the following exception that could be thrown by "getOutputStream": IOException.(ûÖé!8²ÆœŠŸ.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(­ŒĞ„
+N
+java:S1128"1Remove this unused import 'com.google.gson.Gson'.(–§8Œ§ûŠŸ.
+S
+java:S1854"7Remove this useless assignment to local variable "out".(ûÖé!8—…œŠŸ.
+D
+java:S1481"(Remove this unused "out" local variable.(ûÖé!8—…œŠŸ.
+{
+java:S1989"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(ÌÒŸñùÿÿÿÿ8©ü‡‹Ÿ.
+W
+java:S1128"5Remove this unused import 'com.ex.ers.models.Person'.(Ğ¢òµşÿÿÿÿ8ù§‹‹Ÿ.

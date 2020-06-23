@@ -1,0 +1,28 @@
+
+Z	java:S1069"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8è«ÜŸ.
+W
+java:S1128"5Remove this unused import 'com.ex.ers.models.Person'.(Ğ¢òµşÿÿÿÿ8è«ÜŸ.
+Z
+java:S1128">Remove this unused import 'javax.servlet.ServletOutputStream'.(©ãï8è«ÜŸ.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(­ŒĞ„
+s	java:S116"WRename this field "SCHEMA_TABLE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª¶©š8è«ÜŸ.
+Z	java:S106'"9Replace this use of System.out or System.err by a logger.(Ú§ÈÖúÿÿÿÿ8è«ÜŸ.
+d
+java:S2095%"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(åçºë8è«ÜŸ.
+i
+java:S1989;"LHandle the following exception that could be thrown by "print": IOException.(Ü…²­8è«ÜŸ.
+s
+java:S1989;"VHandle the following exception that could be thrown by "getOutputStream": IOException.(Ü…²­8è«ÜŸ.
+T
+java:S1128"7Remove this unused import 'com.google.gson.JsonObject'.(µÊ´½8è«ÜŸ.
+i
+java:S2095$"GUse try-with-resources or close this "Statement" in a "finally" clause.(èû±öúÿÿÿÿ8è«ÜŸ.
+b
+java:S2259,"@A "NullPointerException" could be thrown; "rs" is nullable here.(íôÚÇşÿÿÿÿ8è«ÜŸ.
+\
+java:S1161":Add the "@Override" annotation above this method signature(ôƒ×îÿÿÿÿÿ8è«ÜŸ.
+u
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ª¶©š8è«ÜŸ.
+z
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(¯Å¼üÿÿÿÿ8è«ÜŸ.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(õÑä³ûÿÿÿÿ8è«ÜŸ.

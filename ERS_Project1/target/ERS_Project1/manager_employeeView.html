@@ -1,0 +1,80 @@
+<!--
+manager_requestsView.html
+Chart location: E. User stories involved: H, I, J
+Form Input(s): none
+Function(s): displayRequests(JSON requestsArray), approveRequest(JSON ReimbursementRequest), denyRequest(JSON ReimbursementRequest)
+Backend Function(s): getResolvedRequests(), getPendingRequests(), approveRequest(ReimbursementRequest), denyRequest(ReimbursementRequest)
+Possible Transfer(s): manager_homepage.html
+Comment(s): displayRequests(JSON requestsArray) should be used to produce separate displays for all pending and all resolved requests.
+displayRequests(JSON requestsArray) should generate html that has approve and deny buttons for each row. 
+for resolved requests, displayRequests(JSON requestsArray) needs to show which manager resolved the req
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee's Reimbursement Requests</title>
+</head>
+    <style>
+        p {
+            margin: 0;
+        }
+        td {
+            border: 1px solid;
+        }
+        th {
+            border: 1px solid;
+        }
+
+    </style>
+<body>
+    <h1>View Employee's Reimbursement Requests</h1>
+    <p>The selected employee has the following reimbursement requests: </p>
+    <table id="table" style="border:1px solid"></table>
+    <br/>
+    <br/>
+    <a href="manager_homepage.html">Back to your homepage</a>
+    <br/>
+    <br/>
+    <a href="logoutServlet">Logout</a>
+
+</body>
+
+<script>
+    console.log("manager_employeeView testing hidden thing: " + document.getElementById("employeeIDStore").innerHTML);
+    const table = document.getElementById("table");
+    const exEmployeeRequests = {
+        "requests":[
+  {"approved":true, "requestor":"Bob Marley", "approver":"Frederick Douglas", "amount": 999.99, "comment":"I spent all of it on food.", "id":1},
+  {"approved":false, "requestor":"Bob Marley", "approver":null, "amount": 999.99, "comment":"I spent all of it on food.", "id":2},
+  {"approved":false, "requestor":"Bob Marley", "approver":null, "amount": 999.99, "comment":"I spent all of it on food.", "id":3},
+  {"approved":true, "requestor":"Bob Marley", "approver":"Music Maker", "amount": 999.99, "comment":"I spent all of it on food.", "id":4},
+  {"approved":true, "requestor":"Bob Marley", "approver":"Songwriter", "amount": 999.99, "comment":"I spent all of it on food.", "id":5},
+  {"approved":true, "requestor":"Bob Marley", "approver":"Ada Lovelace", "amount": 999.99, "comment":"I spent all of it on food.", "id":6},
+]};
+
+    function viewRequests(requests){
+        const requestArray = requests.requests;
+        let tableHTML = "";
+        tableHTML+="<tr><th>Is approved?</th><th>Requestor</th><th>Approver</th><th>Dollar Amount</th><th>Employee's Comment (optional)</th><th>ID</th></tr>";
+        for (let key=0, size=requestArray.length; key<size; key++){
+            tableHTML+='<tr><td>';
+            tableHTML+=requestArray[key].approved;
+            tableHTML+='</td><td>';
+            tableHTML+=requestArray[key].requestor;
+            tableHTML+= '</td><td>';
+            tableHTML+=requestArray[key].approver;
+            tableHTML+= '</td><td>';
+            tableHTML+=requestArray[key].amount;
+            tableHTML+='</td><td>';
+            tableHTML+=requestArray[key].comment;
+            tableHTML+= '</td><td>';
+            tableHTML+=requestArray[key].id;
+            tableHTML+= '</td></tr>';
+         }
+         return tableHTML;
+    }
+    table.innerHTML = viewRequests(exEmployeeRequests);
+</script>
+</html>

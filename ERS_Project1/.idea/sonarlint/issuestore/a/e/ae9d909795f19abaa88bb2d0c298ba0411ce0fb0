@@ -1,0 +1,17 @@
+
+Q	java:S125%"<This block of commented-out lines of code should be removed.(Šœ•‡
+Q	java:S125 "<This block of commented-out lines of code should be removed.(È‰½Ÿ
+Q	java:S1251"<This block of commented-out lines of code should be removed.(éèØÏ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(­ŒĞ„
+G
+java:S1481",Remove this unused "service" local variable.(òÂ¶Æøÿÿÿÿ
+V
+java:S1854";Remove this useless assignment to local variable "service".(òÂ¶Æøÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(õ³Ôä
+n
+java:S19898"SHandle the following exception that could be thrown by "sendRedirect": IOException.(µÏø˜øÿÿÿÿ
+k
+java:S1989"VHandle the following exception that could be thrown by "getOutputStream": IOException.(ûÖé!
+Q	java:S125'"<This block of commented-out lines of code should be removed.(éèØÏ
+g
+java:S19897"LHandle the following exception that could be thrown by "print": IOException.(Â÷¶‰üÿÿÿÿ

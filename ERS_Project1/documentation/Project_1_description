@@ -1,0 +1,18 @@
+Expense Reimbursement System
+This system allows for quick and effecient handling and viewing of expense reimbursement requests. 
+Managers are able to view any submitted requests, and can filter those requests by a single employee or by pending status. Managers can also approve or deny any pending requests.
+Employees are able to submit new requests, and they are able to see the status of all of their previous requests.
+
+Technologies used:
+Java
+Servlets
+HTML/CSS/JavaScript
+AJAX
+SQL/JDBC
+JUnit
+Mockito
+
+
+Collaborators:
+Jordan Severance
+Christopher Hill

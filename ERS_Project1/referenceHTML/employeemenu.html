@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <script type="text/javascript">    <!--use the ajax to take the data sent from servlet and populate the table-->
+
+          function fillPersonalInfo(){
+            document.getElementById('fname').innerHTML = getCookie(fname);
+            document.getElementById('lname').innerHTML = getCookie(lname);
+            document.getElementById('address').innerHTML = getCookie(address);
+            document.getElementById('jobtitle').innerHTML = getCookie(jobtitle);
+            document.getElementById('username').innerHTML = getCookie(username);
+          }
+
+         function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+              }
+              if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+              }
+            }
+            return "";
+        }
+    </script>
+</head>
+<body onload="fillPersonalInfo">
+<h2>This is the employee homepage</h2>
+<table name="empInfo" id="empInfo">
+    <!-- create a table with the user's info-->
+    <tr><td>First Name:</td><td id="fname"></td></tr>
+    <tr><td>Last Name:</td><td id="lname"></td></tr>
+    <tr><td>Address:</td><td id="address"></td></tr>
+    <tr><td>Job Title:</td><td id="jobtitle"></td></tr>
+    <tr><td>Username:</td><td id="username"></td></tr>
+</table>
+<a href="updateUser.html">Update your personal info</a> <br>
+<a href="newReimReq.html">Create a new reimbursement request</a><br>
+<form name="oldReims" action="AllReimsForID" method="post">
+    <label for="pendingChoice">Choose what submitted requests to view</label>
+    <select id="pendingChoice" name="pendingChoice">
+        <option value="pending">Pending Reimbursements</option>
+        <option value="resolved">Resolved Reimbursements</option>
+    </select>
+    <input type="submit">
+</form>
+<br>
+<a href="logoutServlet">Logout</a>
+
+<script>
+
+</script>
+</body>
+</html>

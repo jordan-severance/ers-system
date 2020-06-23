@@ -1,0 +1,75 @@
+<!--employee_requestsView.html
+Chart location: G. User stories covered: N, P
+Form Input(s): none
+JavaScript Function(s): viewResolvedReqs(JSON resolvedRequestsResponse), viewPendingReqs(JSON PendingRequestsResponse)
+Backend Function(s): viewResolvedReqs(Person), viewPendingReqs(Person)
+Possible Transfer(s): employee_homepage.html
+Comment(s):
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Reimbursement Requests</title>
+</head>
+    <style>
+        p {
+            margin: 0;
+        }
+        td {
+            border: 1px solid;
+        }
+        th {
+            border: 1px solid;
+        }
+
+    </style>
+<body>
+    <h1>My Reimbursement Requests</h1>
+    <p>You have submitted the following requests: </p>
+    <table id="table" style="border:1px solid"></table>
+    <br/>
+    <br/>
+    <a href="employee_homepage.html">Back to your homepage</a>
+    <br/>
+    <a href="logoutServlet">Logout</a>
+</body>
+
+<script>
+    let table = document.getElementById("table");
+    const exRequests = {
+        "requests":[
+  {"approved":true, "requestor":"Bob Marley", "approver":"Frederick Douglas", "amount": 999.99, "comment":"I spent all of it on food.", "id":1},
+  {"approved":false, "requestor":"Bob Marley", "approver":null, "amount": 999.99, "comment":"I spent all of it on food.", "id":2},
+  {"approved":false, "requestor":"Bob Marley", "approver":null, "amount": 999.99, "comment":"I spent all of it on food.", "id":3},
+  {"approved":true, "requestor":"Bob Marley", "approver":"Music Maker", "amount": 999.99, "comment":"I spent all of it on food.", "id":4},
+  {"approved":true, "requestor":"Bob Marley", "approver":"Songwriter", "amount": 999.99, "comment":"I spent all of it on food.", "id":5},
+  {"approved":true, "requestor":"Bob Marley", "approver":"Ada Lovelace", "amount": 999.99, "comment":"I spent all of it on food.", "id":6},
+    ]};
+
+    function viewRequests(requestJSON){
+        const requests = requestJSON.requests;
+        let tableHTML = "";
+        tableHTML+="<tr><th>Is approved?</th><th>Requestor</th><th>Approver</th><th>Dollar Amount</th><th>Employee's Comment (optional)</th><th>ID</th></tr>";
+        for (let key=0, size=requests.length; key<size; key++){
+            tableHTML+='<tr><td>';
+            tableHTML+=requests[key].approved;
+            tableHTML+='</td><td>';
+            tableHTML+=requests[key].requestor;
+            tableHTML+= '</td><td>';
+            tableHTML+=requests[key].approver;
+            tableHTML+= '</td><td>';
+            tableHTML+=requests[key].amount;
+            tableHTML+='</td><td>';
+            tableHTML+=requests[key].comment;
+            tableHTML+= '</td><td>';
+            tableHTML+=requests[key].id;
+            tableHTML+= '</td></tr>';
+         }
+         return tableHTML;
+    }
+
+    table.innerHTML = viewRequests(exRequests);
+</script>
+</html>

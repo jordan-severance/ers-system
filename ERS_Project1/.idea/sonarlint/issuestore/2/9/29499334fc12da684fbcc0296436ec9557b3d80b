@@ -1,0 +1,25 @@
+
+X
+java:S1128";Remove this unused import 'javax.servlet.http.HttpSession'.(í¨ô8ŞÚ™Ÿ.
+U
+java:S1854""8Remove this useless assignment to local variable "reim".(û‰š¢8ŞÚ™Ÿ.
+M
+java:S1128	"7Remove this unused import 'com.google.gson.JsonObject'.(µÊ´½
+N
+java:S1128"8Remove this unused import 'com.google.gson.JsonElement'.(ğ†˜³
+n
+java:S1989"XHandle the following exception that could be thrown by "valueOf": NumberFormatException.(ÀË–
+W
+java:S1128"5Remove this unused import 'com.ex.ers.models.Person'.(Ğ¢òµşÿÿÿÿ8ŞÚ™Ÿ.
+{
+java:S1989 "YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(ÔòÚ¤ûÿÿÿÿ8ŞÚ™Ÿ.
+n
+java:S1989$"LHandle the following exception that could be thrown by "print": IOException.(ˆó„ãúÿÿÿÿ8ŞÚ™Ÿ.
+x
+java:S1989$"VHandle the following exception that could be thrown by "getOutputStream": IOException.(ˆó„ãúÿÿÿÿ8ŞÚ™Ÿ.
+S
+java:S1128">Remove this unused import 'javax.servlet.ServletOutputStream'.(©ãï
+`
+java:S1128">Remove this unused import 'com.ex.ers.services.PersonService'.(½ÌÊ½ıÿÿÿÿ8ŞÚ™Ÿ.
+N
+java:S1128"3Remove this unused import 'java.lang.reflect.Type'.(‰ûÕñıÿÿÿÿ

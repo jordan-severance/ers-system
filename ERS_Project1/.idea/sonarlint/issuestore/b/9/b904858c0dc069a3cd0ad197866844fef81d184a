@@ -1,0 +1,70 @@
+
+?
+java:S1148’"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+P
+java:S1143P"5Remove this return statement from this finally block.(üíó¥úÿÿÿÿ
+Q
+java:S1143—"5Remove this return statement from this finally block.(±ÆŽ‘þÿÿÿÿ
+>
+java:S1148r"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+r
+java:S2095£"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(·ë¡ãøÿÿÿÿ8ÈÕå¢Ÿ.
+F
+java:S1148Ï"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8“ÞÚ™Ÿ.
+]
+java:S2259#"GA "NullPointerException" could be thrown; "requester" is nullable here.(Éß·“
+>
+java:S1148K"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+R
+java:S1143Ò"5Remove this return statement from this finally block.(òÞï8“ÞÚ™Ÿ.
+e
+java:S20954"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÀÖÐ½
+P
+java:S1143w"5Remove this return statement from this finally block.(üíó¥úÿÿÿÿ
+d
+java:S1192;"GDefine a constant instead of duplicating this literal "amount" 3 times.(œÍŠ8“ÞÚ™Ÿ.
+]
+java:S2095]"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(‚µŠ¯
+k
+java:S1192>"IDefine a constant instead of duplicating this literal "approver" 3 times.(‹þÓÄÿÿÿÿÿ8“ÞÚ™Ÿ.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢ôýûþÿÿÿÿ
+[
+java:S1128"ERemove this unused import 'com.ex.ers.services.ReimbursementService'.(³ã°Ü
+j
+java:S2095¼"GUse try-with-resources or close this "Statement" in a "finally" clause.(Ë«Æþûÿÿÿÿ8“ÞÚ™Ÿ.
+j
+java:S1192="HDefine a constant instead of duplicating this literal "pending" 3 times.(æÈ‘ôýÿÿÿÿ8“ÞÚ™Ÿ.
+e
+java:S2095½"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(‚µŠ¯8“ÞÚ™Ÿ.
+]
+java:S20956"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…
+]
+java:S2095!"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ªŸ–
+k
+java:S2095ƒ"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(·ë¡ãøÿÿÿÿ
+>
+java:S1148l"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+b
+java:S2095\"GUse try-with-resources or close this "Statement" in a "finally" clause.(Ë«Æþûÿÿÿÿ
+B
+java:S1168Ý"+Return an empty collection instead of null.(¥¹ï
+F
+java:S1148É"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8“ÞÚ™Ÿ.
+g
+java:S11929"JDefine a constant instead of duplicating this literal "requester" 3 times.(êÜ‘8“ÞÚ™Ÿ.
+>
+java:S1148E"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+?
+java:S1148Œ"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+Q
+java:S1143²"5Remove this return statement from this finally block.(±ÆŽ‘þÿÿÿÿ
+j
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Í­ÂÙùÿÿÿÿ
+?
+java:S1148¯"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+?
+java:S1148©"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+k
+java:S1192<"IDefine a constant instead of duplicating this literal "approved" 3 times.(Ù™¯Ëùÿÿÿÿ8“ÞÚ™Ÿ.
+k
+java:S1192:"IDefine a constant instead of duplicating this literal "scomment" 3 times.(ä·§¤øÿÿÿÿ8“ÞÚ™Ÿ.

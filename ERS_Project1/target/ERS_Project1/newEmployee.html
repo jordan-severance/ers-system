@@ -1,0 +1,32 @@
+<!--
+newEmployee.html
+Chart location: C. User stories covered: G
+Form Input(s): "fname", "lname", "address", "jobTitle", "username", "pw", boolean isManager;
+JavaScript Function(s): none
+Backend Function(s): createEmployee(Person)
+Possible Transfer(s): index.html
+Comment(s): newEmployee.html doesn't provide an exact implementation of user story G
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter New Employee's Information</title>
+</head>
+<body>
+<h2>Enter New Employee's Information</h2>
+<form name="newEmployee" action="newUserServlet" method="post">
+    <input id="fname" name="fname" type="text" placeholder="First Name"/>
+    <input id="lname" name="lname" type="text" placeholder="Last Name"/>
+    <input id="address" name="address" type="text" placeholder="Address"/>
+    <input id="jobtitle" name="jobtitle" type="text" placeholder="Job Title"/>
+    <input id="username" type="text" name="username" placeholder="Enter Username"/>
+    <input type="password" id="pw" name="pw" placeholder="Enter Password"/>
+    <input id="submit_btn"  type="submit" value="Register"/>
+</form>
+<br/>
+<br/>
+<a href="logoutServlet">Logout</a>
+</body>
+</html>

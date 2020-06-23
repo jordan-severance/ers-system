@@ -1,0 +1,24 @@
+Expense Reimbursement System (ERS)
+
++1  A-An Employee can login
++1  C-An Employee can view the Employee Homepage
++1  E-An Employee can logout
++1  M-An Employee can submit a reimbursement request
++1  N-An Employee can view their pending reimbursement requests
++1  P-An Employee can view their resolved reimbursement requests
++1  Q-An Employee can view their information
++1  O-An Employee can update their information
+
+
++1  B-A Manager can login
++1  D-A Manager can view the Manager Homepage
++1  F-A Manager can logout
++1  H-A Manager can approve/deny pending reimbursement requests
++1  I-A Manager can view all pending requests from all employees
++1  J-A Manager can view all resolved requests from all employees and see which manager resolved it
++1  K-A Manager can view all Employees
++1  L-A Manager can view reimbursement requests from a single Employee
+
+G-A Manager can register an Employee, which sends the Employee an email with their username and temp password (optional)
+     -An Employee can reset their password (Optional - tied with above functional requirement)
+-An Employee receives an email when one of their reimbursement requests is resolved (optional)

@@ -1,0 +1,31 @@
+<!--employee_updateInfo.html
+Chart location: I. User stories covered: O
+Form Inputs(s): "fname", "lname", "address", "jobTitle", "username", "pw", boolean isManager;
+JavaScript Function(s): none
+Backend Function(s): updatePerson(Person)
+Possible Page Transfer(s): employee_homepage.html
+Comment(s):
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter your updated Information</title>
+</head>
+<body>
+<h2>Enter your updated information, all rows must be filled out before submitting.</h2>
+<form name="updateEmployee" action="updateUserServlet" method="post">
+    <input id="fname" name="fname" type="text" placeholder="First Name"/>
+    <input id="lname" name="lname" type="text" placeholder="Last Name"/>
+    <input id="address" name="address" type="text" placeholder="Address"/>
+    <input id="jobtitle" name="jobtitle" type="text" placeholder="Job Title"/>
+    <input id="username" type="text" name="username" placeholder="Enter Username"/>
+    <input type="password" id="pw" name="pw" placeholder="Enter Password"/>
+    <input id="submit_btn"  type="submit" value="Update My Information on File"/>
+</form>
+<br/>
+<br/>
+<a href="logoutServlet">Logout</a>
+</body>
+</html>

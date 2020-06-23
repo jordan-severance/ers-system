@@ -1,0 +1,160 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: PersonService</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.ex.ers.services</a> ]
+</div>
+
+<h1>Coverage Summary for Class: PersonService (com.ex.ers.services)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PersonService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (6/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    60.8%
+  </span>
+  <span class="absValue">
+    (31/ 51)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.ex.ers.services;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.ex.ers.DAO.DAOs;
+<i>4</i>&nbsp;import com.ex.ers.DAO.PersonDAO;
+<i>5</i>&nbsp;import com.ex.ers.models.Person;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public class PersonService {
+<i>10</i>&nbsp;    private PersonDAO personDAO;
+<b class="nc"><i>11</i>&nbsp;    public PersonService(){this.personDAO = new PersonDAO();}</b>
+<b class="fc"><i>12</i>&nbsp;    public PersonService(PersonDAO personDAO){</b>
+<b class="fc"><i>13</i>&nbsp;        this.personDAO = personDAO;</b>
+<b class="fc"><i>14</i>&nbsp;    }</b>
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    public boolean legitName(String s){
+<b class="fc"><i>17</i>&nbsp;        Person person = this.personDAO.findByName(s);</b>
+<b class="fc"><i>18</i>&nbsp;        boolean status = false;</b>
+<b class="fc"><i>19</i>&nbsp;        if(person != null){</b>
+<b class="fc"><i>20</i>&nbsp;            status = true;</b>
+<i>21</i>&nbsp;        }
+<b class="fc"><i>22</i>&nbsp;        return status;</b>
+<i>23</i>&nbsp;    }
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    public Person loginPerson(String username, String password){
+<b class="fc"><i>26</i>&nbsp;        Person person = new Person();</b>
+<b class="fc"><i>27</i>&nbsp;        person = this.personDAO.findByName(username);</b>
+<b class="fc"><i>28</i>&nbsp;        if (password.equals(person.getPw())){</b>
+<b class="fc"><i>29</i>&nbsp;            return person;</b>
+<i>30</i>&nbsp;        } else {
+<b class="nc"><i>31</i>&nbsp;            return null;</b>
+<i>32</i>&nbsp;        }
+<i>33</i>&nbsp;    }
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    public Person findByName(String username){
+<b class="nc"><i>36</i>&nbsp;        Person person = new Person();</b>
+<b class="nc"><i>37</i>&nbsp;        person = this.personDAO.findByName(username);</b>
+<b class="nc"><i>38</i>&nbsp;        return person;</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;
+<b class="nc"><i>42</i>&nbsp;    public List&lt;Person&gt; getAllEmployees(){</b>
+<b class="fc"><i>43</i>&nbsp;        List&lt;Person&gt; everyone = null;</b>
+<b class="fc"><i>44</i>&nbsp;        everyone = this.personDAO.findAll();</b>
+<b class="fc"><i>45</i>&nbsp;        return everyone;</b>
+<i>46</i>&nbsp;    }
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    public Person saveNewUser(String fname, String lname, String address, String jobtitle, String username, String pw){
+<b class="fc"><i>49</i>&nbsp;        Person person = new Person();</b>
+<b class="fc"><i>50</i>&nbsp;//        if(this.personDAO.findByName(username)==null){        //username not in use</b>
+<b class="fc"><i>51</i>&nbsp;            person.setFname(fname);</b>
+<b class="fc"><i>52</i>&nbsp;            person.setLname(lname);</b>
+<b class="fc"><i>53</i>&nbsp;            person.setAddress(address);</b>
+<b class="fc"><i>54</i>&nbsp;            person.setJobTitle(jobtitle);</b>
+<b class="fc"><i>55</i>&nbsp;            person.setUsername(username);</b>
+<b class="fc"><i>56</i>&nbsp;            person.setPw(pw);</b>
+<b class="fc"><i>57</i>&nbsp;            this.personDAO.save(person);</b>
+<b class="fc"><i>58</i>&nbsp;//        }</b>
+<b class="fc"><i>59</i>&nbsp;</b>
+<b class="fc"><i>60</i>&nbsp;        return person;</b>
+<b class="fc"><i>61</i>&nbsp;    }</b>
+<b class="fc"><i>62</i>&nbsp;</b>
+<b class="fc"><i>63</i>&nbsp;    public Person updateUserInfo(String fname, String lname, String address, String jobtitle, String username, String pw){</b>
+<b class="nc"><i>64</i>&nbsp;        Person person = new Person();</b>
+<b class="nc"><i>65</i>&nbsp;        person = findByName(username);</b>
+<b class="fc"><i>66</i>&nbsp;        person.setFname(fname);</b>
+<b class="nc"><i>67</i>&nbsp;        person.setLname(lname);</b>
+<b class="nc"><i>68</i>&nbsp;        person.setAddress(address);</b>
+<b class="nc"><i>69</i>&nbsp;        person.setJobTitle(jobtitle);</b>
+<b class="nc"><i>70</i>&nbsp;        person.setPw(pw);</b>
+<b class="nc"><i>71</i>&nbsp;        int nothing = this.personDAO.update(person);</b>
+<b class="nc"><i>72</i>&nbsp;        return person;</b>
+<b class="nc"><i>73</i>&nbsp;    }</b>
+<b class="nc"><i>74</i>&nbsp;</b>
+<b class="nc"><i>75</i>&nbsp;</b>
+<b class="nc"><i>76</i>&nbsp;}</b>
+<b class="nc"><i>77</i>&nbsp;</b>
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-05-08 00:44</div>
+</div>
+</body>
+</html>

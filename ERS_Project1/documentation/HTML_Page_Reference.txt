@@ -1,0 +1,78 @@
+List of HTML pages needed, their locations in the Frontend diagram that Jordan and I created,
+which of the client's user stories are covered, and other details for each HTML page.
+	
+index.html
+Chart location: A. User stories covered: A, B 	
+Form Input(s): "username", "password"
+JavaScript Function(s): none
+Backend Function(s): none
+Possible Transfer(s): newUser.html, employee_homepage.html, manager_homepage.html
+Comment(s):
+
+newEmployee.html
+Chart location: C. User stories covered: G
+Form Input(s): "fname", "lname", "address", "jobTitle", "username", "pw", boolean isManager;
+JavaScript Function(s): none
+Backend Function(s): createEmployee(Person)
+Possible Transfer(s): index.html
+Comment(s): newEmployee.html doesn't provide an exact implementation of user story G
+
+manager_homepage.html
+Chart location: D. User stories involved: D, F, K
+Form Input(s): none
+JavaScript Function(s): viewEmployees(), getEmployeeData()
+Backend Function(s):  getEmployees()
+Possible Transfer(s): manager_detailView.html, manager_employeeView.html
+Comment(s):
+
+manager_requestsView.html
+Chart location: E. User stories involved: H, I, J
+Form Input(s): none
+Function(s): displayRequests(JSON requestsArray), approveRequest(JSON ReimbursementRequest), denyRequest(JSON ReimbursementRequest)
+Backend Function(s): getResolvedRequests(), getPendingRequests(), approveRequest(ReimbursementRequest), denyRequest(ReimbursementRequest)
+Possible Transfer(s): manager_homepage.html
+Comment(s): displayRequests(JSON requestsArray) should be used to produce separate displays for all pending and all resolved requests.
+displayRequests(JSON requestsArray) should generate html that has approve and deny buttons for each row. 
+for resolved requests, displayRequests(JSON requestsArray) needs to show which manager resolved the req
+
+manager_employeeView.html
+Chart location: F. User stories involved: L
+Form Input(s): none
+JavaScript Function(s): displayRequests(JSON requestsResponse)
+Backend Function(s): getRequests(Person)
+Possible Transfer(s): manager_homepage.html
+Comment(s): 
+
+employee_homepage.html
+Chart location: B. User stories covered: C, E, Q
+Form Input(s): none
+JavaScript Function(s): displayPI(JSON person)
+Backend Function(s): getPerson(String username, String password)
+Possible Transfer(s): employee_requestsView.html, employee_newReq.html, employee_updateInfo.html
+Comment(s):
+
+employee_requestsView.html
+Chart location: G. User stories covered: N, P
+Form Input(s): none
+JavaScript Function(s): viewResolvedReqs(JSON resolvedRequestsResponse), viewPendingReqs(JSON PendingRequestsResponse)
+Backend Function(s): viewResolvedReqs(Person), viewPendingReqs(Person)
+Possible Transfer(s): employee_homepage.html
+Comment(s):
+
+employee_newReq.html
+Chart location: H. User stories covered: M
+Form Input(s): float amount, "comment"
+JavaScript Function(s): none
+Backend Function(s): newReq(ReimbursementRequest)
+Possible Page Transfer(s): employee_homepage.html
+Comment(s):
+
+employee_updateInfo.html
+Chart location: I. User stories covered: O
+Form Inputs(s): "fname", "lname", "address", "jobTitle", "username", "pw", boolean isManager;
+JavaScript Function(s): none
+Backend Function(s): updatePerson(Person)
+Possible Page Transfer(s): employee_homepage.html
+Comment(s):
+
+

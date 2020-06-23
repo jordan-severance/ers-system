@@ -1,0 +1,391 @@
+<!--
+index.html
+Chart location: A. User stories covered: A, B 	
+Form Input(s): "username", "password"
+JavaScript Function(s): none
+Backend Function(s): none
+Possible Transfer(s): newUser.html, employee_homepage.html, manager_homepage.html
+Comment(s):
+-->
+
+<!doctype html>
+<html>
+<head>
+    <title>Expense Reimbursement System</title>
+    <style>
+        h2 {
+            text-align: center;
+            margin-left: 25%;
+            margin-right: 25%;
+            width : 340px;
+        } 
+        fieldset {
+            margin-left: 25%;
+            margin-right: 25%;
+            width: 300px;
+        }
+        input {
+            margin-right: 0px;
+            float: left;
+        }
+        td {
+            border: 1px solid;
+        }
+        th {
+
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="fullBody">
+    <h2>Expense Reimbursement System</h2>
+        <fieldset> <legend>User Credentials</legend>
+            <label>
+                <tab></tab>
+                <input placeholder="Username" id="username" name="username" type="text"/>
+            </label>
+            <br/>
+            <br/>
+            <label>
+                <input placeholder="Password" id="password" name="password" type="password"/>
+            </label>
+            <br/>
+            <br/>
+            <input name="submit" type="button" value="Login" onclick="checkCredentials()">
+            <br/>
+            <p id="invalid"></p>
+        </fieldset>
+    
+    </div>
+    </body>
+    
+    
+<script>
+
+    const doc = this.document;
+    let session = {"id" : null, "username" : "null", "pw" : "null", "fname" : "null1", "lname": "null2",
+        "address" : "null", "jobTitle" : "null", "isManager" : "null", "currentPage" : "index.html", "error" : "false"};
+
+
+    //--------------index.html-----------------------------
+    function checkCredentials(){
+        session.username = doc.getElementById("username").value;
+        session.pw = doc.getElementById("password").value;
+        const xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.onreadystatechange = function () {
+            if(this.readyState === 4 && this.status === 200){
+                let responseJSON = JSON.parse(this.responseText);
+                console.log(responseJSON);
+                console.log(session);
+                session.currentPage = responseJSON["currentPage"];
+                session.error = responseJSON["error"];
+                session.id = responseJSON["id"];
+                session.fname = responseJSON["fname"];
+                session.lname = responseJSON["lname"];
+                session.address = responseJSON["address"];
+                session.jobTitle = responseJSON["jobTitle"];
+                session.isManager = responseJSON["isManager"];
+                session.currentPage = responseJSON["currentPage"];
+                session.error = responseJSON["error"];
+                console.log(session);
+                if(session.username == responseJSON["username"] && session.pw == responseJSON["pw"]){
+                    if(responseJSON["isManager"] == true)
+                        changeToManager_Homepage();
+                    else{
+                        employee_homepage();
+                        //changeToEmployee_Homepage();
+                    }
+                } else{
+                    document.getElementById("invalid").innerHTML = "Invalid User Credentials.";
+                }
+            }
+        }
+        xmlHttpRequest.open("POST", "loginServletNEW");
+        xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttpRequest.send("username="+session.username+"&password="+session.pw);
+    }
+
+    function changeToManager_Homepage(){
+        const xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.onreadystatechange = function () {
+            if(this.readyState === 4 && this.status === 200){
+                document.open();
+                document.write(this.response);
+                document.close();
+                getAllEmployees();
+            }
+        }
+        xmlHttpRequest.open("get", "manager_homepage.html");
+        xmlHttpRequest.send();
+    }
+
+    function changeToEmployee_Homepage(){
+        const bodyTag = document.getElementById("fullBody");
+        const xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.onreadystatechange = function () {
+            if(this.readyState === 4 && this.status === 200){
+                bodyTag.innerHTML=this.response;
+                document.getElementById("employeeName").innerHTML=session.username;
+                document.getElementById("fname").innerHTML=session.fname;
+                document.getElementById("lname").innerHTML=session.lname;
+                document.getElementById("address").innerHTML=session.address;
+                document.getElementById("jobTitle").innerHTML=session.jobTitle;
+                // document.open();
+                // document.write(this.response);
+                // document.close();
+                //getAllEmployees();
+            }
+        }
+        xmlHttpRequest.open("get", "employee_homepage.html");
+        xmlHttpRequest.send();
+    }
+    //--------------employee_homepage-----------------------------
+    function employee_homepage(){
+        let employee_homepageHTML = "";
+        employee_homepageHTML += "<h1>Welcome to your employee homepage</h1>";
+        employee_homepageHTML += `<p>Is the following information correct?</p>`;
+        employee_homepageHTML += `<p>Name: ${session.fname} ${session.lname}.</p>`;
+        employee_homepageHTML += `<p>Address: ${session.address}.</p>`;
+        employee_homepageHTML += `<p>Job Title: ${session.jobTitle}.</p>`;
+        employee_homepageHTML += `<p>If not, then please click this link to update our information.</p> <button onclick="tableForUpdateMyInformation()">Update My Info</button>`;
+        employee_homepageHTML += `<p>Would you like to submit a new reimbursement request? If so, please click the Submit RR button.</p> <button onclick="viewRequest_reimbursement()">Submit RR</button>`;
+        employee_homepageHTML += `<p>Would you like to see your pending reimbursement requests? If so, please click the Pending RR button.</p> <button onclick="fetchPendingRRs()">Pending RR</button>`;
+        employee_homepageHTML += `<p>Would you like to see your resolved reimbursement requests? If so, please click the Resolved RR button.</p> <button onclick="fetchResolvedRR()">Resolved RR</button>`;
+        employee_homepageHTML += `<p>You may also logout if you wish to do so. </p> <a href="index.html">Logout Of Employee Homepage</a>`;
+        document.getElementById("fullBody").innerHTML = employee_homepageHTML;
+    }
+
+        function fetchPendingRRs() {
+        const xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                console.log(this.responseText);
+                console.log(JSON.parse(this.responseText));
+                displayPendingRRs(JSON.parse(this.responseText));
+            }
+        }
+        xmlHttpRequest.open("POST", "EmployeePendingRRs");
+        xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttpRequest.send("requestorID=" + session.id);
+    }
+
+        function displayPendingRRs(rrs){
+            let tableHTML = "";
+            tableHTML+="<h4>Pending Reimbursement Requests</h4>";
+            tableHTML+="<table><th>Dollar Amount</th><th>Your Comment (optional)</th><th>ID</th>";
+            for (let key=0, size=rrs.length; key<size; key++){
+                tableHTML+='<tr><td>';
+                tableHTML+=rrs[key].amount;
+                tableHTML+='</td><td>';
+                tableHTML+=rrs[key].comment;
+                tableHTML+= '</td><td>';
+                tableHTML+=rrs[key].id;
+                tableHTML+= '</td></tr>';
+                }
+                tableHTML+='</table>';
+                tableHTML+="<br/><Button onClick=employee_homepage()>Back</Button>";
+            
+            document.getElementById("fullBody").innerHTML = tableHTML;
+    }
+
+        function fetchResolvedRR() {
+        const xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                console.log(this.responseText);
+                console.log(JSON.parse(this.responseText));
+                displayResolvedRRs(JSON.parse(this.responseText));
+            }
+        }
+        xmlHttpRequest.open("POST", "EmployeeResolvedRRs");
+        xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttpRequest.send("requestorID=" + session.id);
+    }
+    function displayResolvedRRs(rrs){
+            let tableHTML = "";
+            tableHTML+="<h4>Resolved Reimbursement Requests</h4>";
+            tableHTML+="<table><th>Approved?</th><th>Approver</th><th>Dollar Amount</th><th>Your Comment (optional)</th><th>ID</th>";
+            for (let key=0, size=rrs.length; key<size; key++){
+                tableHTML+='<tr><td>';
+                tableHTML+=rrs[key].approved;
+                tableHTML+='</td><td>';
+                tableHTML+=rrs[key].approver;
+                tableHTML+='</td><td>';
+                tableHTML+=rrs[key].amount;
+                tableHTML+='</td><td>';
+                tableHTML+=rrs[key].comment;
+                tableHTML+= '</td><td>';
+                tableHTML+=rrs[key].id;
+                tableHTML+= '</td></tr>';
+                }
+                tableHTML+='</table>';
+                tableHTML+="<br/><Button onClick=employee_homepage()>Back</Button>";
+            
+            document.getElementById("fullBody").innerHTML = tableHTML;
+    }
+
+
+    function tableForUpdateMyInformation(){
+        let employee_homepageHTML = "";
+        employee_homepageHTML +=    `<h1>Fill out the inputs below and hit send.</h1>`;
+        employee_homepageHTML +=    `<input id="fname" name="fname" type="text" placeholder="First Name"/>`
+        employee_homepageHTML +=    `<input id="lname" name="lname" type="text" placeholder="Last Name"/>`
+        employee_homepageHTML +=    `<input id="address" name="address" type="text" placeholder="Address"/>`
+        employee_homepageHTML +=    `<input id="jobtitle" name="jobtitle" type="text" placeholder="Job Title"/>`
+        employee_homepageHTML +=    `<input type="password" id="pw" name="pw" placeholder="Enter Password"/>`
+        employee_homepageHTML +=    `<input id="submit_btn"  type="submit" onclick="updateMyInformation()" value="Update My Information"/>`
+        employee_homepageHTML +=    "<div><Button onClick=employee_homepage()>Back</Button></div>";
+
+        document.getElementById("fullBody").innerHTML = employee_homepageHTML;
+    }
+
+    function updateMyInformation() {
+        const xmlHttpRequest = new XMLHttpRequest();
+        const afname = document.getElementById("fname").value;
+        const alname = document.getElementById("lname").value;
+        const aaddress = document.getElementById("address").value;
+        const ajobtitle = document.getElementById("jobtitle").value;
+        const ausername = session.username;
+        const apassword = document.getElementById("pw").value;
+        xmlHttpRequest.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                let responseJSON = JSON.parse(this.responseText);
+                console.log(responseJSON);
+                console.log(session);
+                session.fname = responseJSON["fname"];
+                session.lname = responseJSON["lname"];
+                session.address = responseJSON["address"];
+                session.jobTitle = responseJSON["jobTitle"];
+                session.isManager = responseJSON["isManager"];
+                session.currentPage = responseJSON["currentPage"];
+                session.error = responseJSON["error"];
+                console.log(session);
+
+                employee_homepage();
+
+                }
+            }
+        let formData = new FormData();
+        formData.append("fname", afname);
+        formData.append("lname", alname);
+        formData.append("address",aaddress);
+        formData.append("jobtitle", ajobtitle);
+        formData.append("username", ausername);
+        formData.append("pw", apassword);
+        console.log(formData);
+        xmlHttpRequest.open("POST", "updateUserServlet");
+        xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttpRequest.send("fname="+afname+"&lname="+alname+"&address="+aaddress+
+                                "&jobtitle="+ajobtitle+"&username="+"&pw"+apassword);
+    }
+    //---------------requestRR()---------------------------
+    function viewRequest_reimbursement(){
+        let reimbursementHTML = "";
+        reimbursementHTML += `<fieldset> <legend>Request Reimbursement</legend>`;
+        reimbursementHTML += `<p>You may fill out the form below.</p>`;
+        reimbursementHTML += `<p>Amount: </p>`;
+        reimbursementHTML += `<input style="float: none" id="amount" name="amount" type="number" min="0" step="0.01"/>`;
+        reimbursementHTML += `<p>Reason: </p>`;
+        reimbursementHTML += `<input style="float: none" id="comment" name="comment" type="text" /><br/><br/>`;
+        reimbursementHTML += `<button onclick="requestReimbursement()">Submit Request For Processing</button>`;
+        reimbursementHTML += `</fieldset>`;
+        reimbursementHTML +=  "<div><Button onClick=employee_homepage()>Back</Button></div>";
+
+        document.getElementById("fullBody").innerHTML = reimbursementHTML;
+    }
+    
+
+    function requestReimbursement(){
+        const xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.onreadystatechange = function() {
+            if(this.readyState === 4 && this.status === 200){
+                let responseJSON = JSON.parse(this.responseText);
+                let cash = responseJSON["amount"];
+                console.log(cash);
+                alert("Your request has been submitted for $"+cash);
+                employee_homepage();
+            }
+        }
+        let formData = new FormData();
+        const aamount = document.getElementById("amount").value;
+        const acomment = document.getElementById("comment").value;
+        const aname = session.fname+" "+session.lname;
+        const requesterID = session.id;
+        console.log(aname);
+        formData.append("reqID", requesterID);
+        formData.append("amount", aamount);
+        formData.append("comment", acomment);
+        formData.append("requester", aname);
+        console.log(formData);
+        xmlHttpRequest.open("POST", "NewReim");
+        xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlHttpRequest.send("amount="+aamount+"&comment="+acomment+"&requester="+aname+"&reqID="+requesterID);
+    }
+
+
+
+    //--------------employee_homepage-----------------------------
+    //--------------Other-----------------------------
+    function getAllEmployees () {
+        const xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.onreadystatechange = function () {
+            if(this.readyState === 4 && this.status === 200){
+                displayEmployeesTable(JSON.parse(this.responseText))
+            }
+        }
+        xmlHttpRequest.open("POST", "GetAllEmployeesNEW");
+        xmlHttpRequest.setRequestHeader("Content-type", "application/json");
+        xmlHttpRequest.send();
+    }
+
+    function displayEmployeesTable(employees){
+        let tableHTML = "";
+        tableHTML+="<tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Street Address</th><th>Job Title</th><th>Username</th><th>See Employee's Requests</th></tr>";
+        for (let key=0, size=employees.length; key<size; key++){
+            tableHTML+='<tr><td>';
+            tableHTML+=employees[key].id;
+            tableHTML+='</td><td>';
+            tableHTML+=employees[key].fname;
+            tableHTML+= '</td><td>';
+            tableHTML+=employees[key].lname;
+            tableHTML+= '</td><td>';
+            tableHTML+=employees[key].address;
+            tableHTML+='</td><td>';
+            tableHTML+=employees[key].jobTitle;
+            tableHTML+= '</td><td>';
+            tableHTML+=employees[key].username;
+            tableHTML+= '</td><td>';
+            tableHTML+="<Button onClick=changePageEmployeeRequests()>See Employee's Requests</Button>";
+            tableHTML+= '</td></tr>';
+        }
+        document.getElementById("employeeTable").innerHTML = tableHTML;
+    }
+
+    function changePageEmployeeRequests(){
+        const xmlHttpRequest = new XMLHttpRequest();
+        xmlHttpRequest.onreadystatechange = function () {
+            if(this.readyState === 4 && this.status === 200){
+                document.open();
+                document.write(this.response);
+                document.close();
+            }
+        }
+        xmlHttpRequest.open("get", "manager_employeeView.html");
+        xmlHttpRequest.send();
+    }
+
+
+
+    // const exData = {
+    //     "employees":[
+    //         {"id":1, "fname":"John", "lname":"Doe", "address":"23434 street", "jobTitle":"HelpDesk", "username":"usernameExample", "password":"passwordExample"},
+    //         {"id":2, "fname":"Johna", "lname":"Doea", "address":"23434 streeta", "jobTitle":"HelpDesk", "username":"usernameExamplea", "password":"passwordExamplea"},
+    //         {"id":3, "fname":"Johnb", "lname":"Doeb", "address":"23434 streetb", "jobTitle":"HelpDesk", "username":"usernameExampleb", "password":"passwordExampleb"},
+    //         {"id":4, "fname":"Johnc", "lname":"Doec", "address":"23434 streetc", "jobTitle":"HelpDesk", "username":"usernameExamplec", "password":"passwordExamplec"},
+    //         {"id":5, "fname":"Johnd", "lname":"Doed", "address":"23434 streetd", "jobTitle":"HelpDesk", "username":"usernameExampled", "password":"passwordExampled"},
+    //         {"id":6, "fname":"Johne", "lname":"Doee", "address":"23434 streete", "jobTitle":"HelpDesk", "username":"usernameExamplee", "password":"passwordExamplee"},
+    //     ]};
+    //--------------manager_homepage.html-----------------------------
+</script>
+</html>

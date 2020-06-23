@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager Menu</title>
+</head>
+<body>
+<h2>This is the Manager homepage</h2>
+<form name="allReims" action="AllReims" method="post">
+    <span>View requests from all employees</span><br>
+    <label for="pendingChoice">Choose what requests to view</label>
+    <select id="pendingChoice" name="pendingChoice">
+        <option value="pending">Pending Reimbursements</option>
+        <option value="resolved">Resolved Reimbursements</option>
+    </select>
+    <input type="submit">
+</form>
+<br>
+<a href="GetAllEmployees">View All Employees</a>
+<br>
+<a href="logoutServlet">Logout</a>
+</body>
+</html>

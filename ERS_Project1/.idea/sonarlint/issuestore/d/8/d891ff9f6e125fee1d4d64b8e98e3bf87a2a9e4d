@@ -1,0 +1,29 @@
+
+L
+java:S1854."7Remove this useless assignment to local variable "out".(ûÖé!
+Y
+java:S1128">Remove this unused import 'com.ex.ers.services.PersonService'.(½ÌÊ½ıÿÿÿÿ
+k
+java:S1989."VHandle the following exception that could be thrown by "getOutputStream": IOException.(ûÖé!
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
+V	java:S125#"<This block of commented-out lines of code should be removed.(¬ƒê–ùÿÿÿÿ
+C
+java:S14811"(Remove this unused "con" local variable.(úú–ùşÿÿÿÿ
+Q	java:S125*"<This block of commented-out lines of code should be removed.(íÉê
+G
+java:S1128"1Remove this unused import 'com.google.gson.Gson'.(–§
+[
+java:S1128"ERemove this unused import 'com.ex.ers.services.ReimbursementService'.(³ã°Ü
+Q	java:S125"<This block of commented-out lines of code should be removed.(µ³»
+=
+java:S1481."(Remove this unused "out" local variable.(ûÖé!
+S	java:S1069"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(­ŒĞ„
+b
+java:S20956"GUse try-with-resources or close this "Statement" in a "finally" clause.(õÎêÿÿÿÿÿ
+Y
+java:S1128"CRemove this unused import 'com.ex.ers.models.ReimbursementRequest'.(ä´­Ê
+D
+java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw
+Q	java:S125!"<This block of commented-out lines of code should be removed.(—Ãá²

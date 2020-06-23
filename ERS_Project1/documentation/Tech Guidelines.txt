@@ -1,0 +1,17 @@
+Expense Reimbursement System (ERS)
+
+Technologies:
+-Java 1.8
+-Servlets
+-JDBC
+-SQL
+-HTML/CSS/Javascript(ReactJS)
+-Bootstrap
+-AJAX
+-JUnit
+-log4j
+
+Environment:
+Tomcat
+IntelliJ
+-DBeaver

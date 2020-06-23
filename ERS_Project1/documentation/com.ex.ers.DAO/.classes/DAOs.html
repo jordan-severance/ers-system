@@ -1,0 +1,60 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DAOs</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.ex.ers.DAO</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DAOs (com.ex.ers.DAO)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">DAOs</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.ex.ers.DAO;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.List;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;public interface DAOs&lt;T&gt; {
+<i>6</i>&nbsp;    T findByName (String s);
+<i>7</i>&nbsp;    List&lt;T&gt; findAllByID (int id);
+<i>8</i>&nbsp;    List&lt;T&gt; findAll();
+<i>9</i>&nbsp;    List&lt;T&gt; findAllForName(String s);
+<i>10</i>&nbsp;    int save(T obj);
+<i>11</i>&nbsp;    int update(T obj);
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-05-08 00:44</div>
+</div>
+</body>
+</html>

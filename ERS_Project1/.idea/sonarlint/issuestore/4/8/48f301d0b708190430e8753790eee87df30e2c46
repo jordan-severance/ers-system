@@ -1,0 +1,27 @@
+
+M
+java:S1128"7Remove this unused import 'com.google.gson.JsonObject'.(µÊ´½
+S	java:S1068"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍþÿÿÿÿ
+b
+java:S2095""GUse try-with-resources or close this "Statement" in a "finally" clause.(èû±öúÿÿÿÿ
+U
+java:S1161":Add the "@Override" annotation above this method signature(ôƒ×îÿÿÿÿÿ
+s
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(¯Å¼üÿÿÿÿ
+]
+java:S2095#"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(åçºë
+b
+java:S1989:"LHandle the following exception that could be thrown by "print": IOException.(Ü…²­
+P
+java:S1128"5Remove this unused import 'com.ex.ers.models.Person'.(Ð¢òµþÿÿÿÿ
+n
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ª¶©š
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(­ŒÐ„
+l	java:S116"WRename this field "SCHEMA_TABLE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª¶©š
+[
+java:S2259*"@A "NullPointerException" could be thrown; "rs" is nullable here.(íôÚÇþÿÿÿÿ
+S
+java:S1128">Remove this unused import 'javax.servlet.ServletOutputStream'.(©ãï
+S	java:S106%"9Replace this use of System.out or System.err by a logger.(Ú§ÈÖúÿÿÿÿ
+l
+java:S1989:"VHandle the following exception that could be thrown by "getOutputStream": IOException.(Ü…²­

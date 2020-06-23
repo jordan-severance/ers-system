@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter New User</title>
+    <script type="text/javascript">
+        function setCookie(name, value, days){
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+         function setUserCookie(){
+             setCookie("fname", document.getElementById('fname').value)
+             setCookie("lname", document.getElementById('lname').value)
+             setCookie("address", document.getElementById('address').value)
+             setCookie("jobtitle", document.getElementById('jobtitle').value)
+             setCookie("username", document.getElementById('username').value)
+}
+</script>
+</head>
+<body>
+
+<h2>Enter New User Info</h2>
+<form name="newUser" action="newUserServlet" method="post">
+    <input id="fname" name="fname" type="text" placeholder="First Name"/><br>
+    <input id="lname" name="lname" type="text" placeholder="Last Name"/><br>
+    <input id="address" name="address" type="text" placeholder="Address"/><br>
+    <input id="jobtitle" name="jobtitle" type="text" placeholder="Job Title"/><br>
+    <input id="username" type="text" name="username" placeholder="Enter Username"/><br>
+    <input type="password" id="pw" name="pw" placeholder="Enter Password"/><br>
+    <input id="submit_btn" type="submit" value="Register" onsubmit="seshUserCookie"/><br>
+</form>
+</body>
+</html>

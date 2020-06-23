@@ -1,0 +1,115 @@
+<!--
+manager_requestsView.html
+Chart location: E. User stories involved: H, I, J
+Form Input(s): none
+Function(s): displayRequests(JSON requestsArray), approveRequest(JSON ReimbursementRequest), denyRequest(JSON ReimbursementRequest)
+Backend Function(s): getResolvedRequests(), getPendingRequests(), approveRequest(ReimbursementRequest), denyRequest(ReimbursementRequest)
+Possible Transfer(s): manager_homepage.html
+Comment(s): displayRequests(JSON requestsArray) should be used to produce separate displays for all pending and all resolved requests.
+displayRequests(JSON requestsArray) should generate html that has approve and deny buttons for each row. 
+for resolved requests, displayRequests(JSON requestsArray) needs to show which manager resolved the req
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Reimbursement Requests</title>
+</head>
+    <style>
+        p {
+            margin: 0;
+        }
+        td {
+            border: 1px solid;
+        }
+        th {
+            border: 1px solid;
+        }
+
+    </style>
+<body>
+    <h1>Reimbursement Requests Detailed View</h1>
+    <p>There exist the following pending requests at your workplace: </p>
+    <table id="pendingTable" style="border:1px solid"></table>
+    <br/>
+    <br/>
+    <a href="manager_homepage.html">Back to your homepage</a>
+    <br/>
+    <br/>
+    <a href="logoutServlet">Logout</a>
+</body>
+
+<script>
+    const pendingTable = document.getElementById("pendingTable");
+    const approvedTable = document.getElementById("approvedTable");
+    const exPendingRequests = {
+        "requests":[
+  {"approved":false, "requestor":"John Lock", "approver":null, "amount": 999.99, "comment":"I spent all of it on food.", "id":1},
+  {"approved":false, "requestor":"John Locka", "approver":null, "amount": 999.99, "comment":"I spent all of it on food.", "id":2},
+  {"approved":false, "requestor":"John Lockb", "approver":null, "amount": 999.99, "comment":"I spent all of it on food.", "id":3},
+  {"approved":false, "requestor":"John Lockc", "approver":null, "amount": 999.99, "comment":"I spent all of it on food.", "id":4},
+  {"approved":false, "requestor":"John Lockd", "approver":null, "amount": 999.99, "comment":"I spent all of it on food.", "id":5},
+  {"approved":false, "requestor":"John Locke", "approver":null, "amount": 999.99, "comment":"I spent all of it on food.", "id":6},
+]};
+    const exApprovedRequests = {
+            "requests":[
+    {"approved":true, "requestor":"John Lock", "approver":"John Locka", "amount": 999.99, "comment":"I spent all of it on food.", "id":1},
+    {"approved":true, "requestor":"John Locka", "approver":"John Lockb", "amount": 999.99, "comment":"I spent all of it on food.", "id":2},
+    {"approved":true, "requestor":"John Lockb", "approver":"John Lockc", "amount": 999.99, "comment":"I spent all of it on food.", "id":3},
+    {"approved":true, "requestor":"John Lockc", "approver":"John Lockd", "amount": 999.99, "comment":"I spent all of it on food.", "id":4},
+    {"approved":true, "requestor":"John Lockd", "approver":"John Locke", "amount": 999.99, "comment":"I spent all of it on food.", "id":5},
+    {"approved":true, "requestor":"John Locke", "approver":"Abe Lincoln", "amount": 999.99, "comment":"I spent all of it on food.", "id":6},
+    ]};
+
+    function viewResolvedRequests(exApprovedRequests){
+        const requests = exApprovedRequests.requests;
+        let tableHTML = "";
+        tableHTML+="<tr><th>Is approved?</th><th>Requestor</th><th>Approver</th><th>Dollar Amount</th><th>Employee's Comment (optional)</th><th>ID</th></tr>";
+        for (let key=0, size=requests.length; key<size; key++){
+            tableHTML+='<tr><td>';
+            tableHTML+=requests[key].approved;
+            tableHTML+='</td><td>';
+            tableHTML+=requests[key].requestor;
+            tableHTML+= '</td><td>';
+            tableHTML+=requests[key].approver;
+            tableHTML+= '</td><td>';
+            tableHTML+=requests[key].amount;
+            tableHTML+='</td><td>';
+            tableHTML+=requests[key].comment;
+            tableHTML+= '</td><td>';
+            tableHTML+=requests[key].id;
+            tableHTML+= '</td></tr>';
+         }
+         return tableHTML;
+    }
+    approvedTable.innerHTML = viewResolvedRequests(exApprovedRequests);
+
+    function viewPendingRequests(pendingRequests){
+        const requests = pendingRequests.requests;
+        let tableHTML = "";
+        tableHTML+="<tr><th>Is approved?</th><th>Requestor</th><th>Approver</th><th>Dollar Amount</th><th>Employee's Comment (optional)</th><th>ID</th><th>Help</th></tr>";
+        for (let key=0, size=requests.length; key<size; key++){
+            tableHTML+='<tr><td>';
+            tableHTML+=requests[key].approved;
+            tableHTML+='</td><td>';
+            tableHTML+=requests[key].requestor;
+            tableHTML+= '</td><td>';
+            tableHTML+=requests[key].approver;
+            tableHTML+= '</td><td>';
+            tableHTML+=requests[key].amount;
+            tableHTML+='</td><td>';
+            tableHTML+=requests[key].comment;
+            tableHTML+= '</td><td>';
+            tableHTML+=requests[key].id;
+            tableHTML+= '</td><td>';
+            tableHTML+="<Button onClick=approveRequest(requests[key])()>Approve</Button>";
+            tableHTML+= '</td><td>';
+            tableHTML+="<Button onClick=denyRequest(requests[key])()>Deny</Button>";
+            tableHTML+= '</td></tr>';
+         }
+         return tableHTML;
+    }
+    pendingTable.innerHTML = viewPendingRequests(exPendingRequests);
+</script>
+</html>

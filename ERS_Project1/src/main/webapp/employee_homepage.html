@@ -1,0 +1,54 @@
+<!--employee_homepage.html
+Chart location: B. User stories covered: C, E, Q
+Form Input(s): none
+JavaScript Function(s): displayPI(JSON person)
+Backend Function(s): getPerson(String username, String password)
+Possible Transfer(s): employee_requestsView.html, employee_newReq.html, employee_updateInfo.html
+Comment(s):
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Homepage</title>
+</head>
+    <style>
+        p {
+            margin: 0;
+        }
+    </style>
+<body>
+    <h1>Employee Homepage</h1> 
+    <p style="display:inline">Welcome</p>  <p style="display:inline" id="employeeName"></p> 
+    <p>On file for you we have: </p>
+    <p style="display:inline" id="fname"></p>
+    <p style="display:inline" id="lname"></p>
+    <p style="display:inline" id="address"></p>
+    <p style="display:inline" id="jobTitle"></p>
+
+    <p style="display: inline">If any of the above is incorrect, then please click </p> <a style="display: inline" href="employee_updateInfo.html">here</a><p style="display: inline">.</p>
+    <br/><br/>
+    <p>------------------------------------------------------------</p>
+    <p>------------------------------------------------------------</p>
+    <br/>
+
+    <p style="display: inline">To view your submitted reimbursement requests, please click </p> <a style="display: inline" href="AllReimsForID">here</a><p style="display: inline">.</p>
+    <br/>
+    <p style="display: inline">Or, you may click </p> <a style="display: inline" href="employee_newReq.html">this link</a><p style="display: inline"> to submit a new reimbursement request.</p>
+    <br/>
+    <a href="logoutServlet">Logout</a>
+</body>
+
+<!--    <script>-->
+<!--        const exEmployee = {"id":1, "fname":"John", "lname":"Doe", "address":"23434 street", "jobTitle":"HelpDesk", "username":"usernameExample", "password":"passwordExample", "isManager":1};-->
+<!--        function displayPI (employee){-->
+<!--            document.getElementById("employeeName").innerHTML = employee.fname + " " + employee.lname;-->
+<!--            document.getElementById("employeeAddress").innerHTML = "Address: " + employee.address;-->
+<!--            document.getElementById("employeeJob").innerHTML = "Job Title: " + employee.jobTitle;-->
+<!--        }-->
+<!--        displayPI(exEmployee);-->
+
+<!--    </script>-->
+
+</html>

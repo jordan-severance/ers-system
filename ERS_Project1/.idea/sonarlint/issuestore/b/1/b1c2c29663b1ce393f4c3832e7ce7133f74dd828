@@ -1,0 +1,15 @@
+
+U
+java:S1854@":Remove this useless assignment to local variable "person".(½Ñã„üÿÿÿÿ
+U
+java:S1854$":Remove this useless assignment to local variable "person".(½Ñã„üÿÿÿÿ
+Q	java:S1252"<This block of commented-out lines of code should be removed.(ˆæ´Ÿ
+K
+java:S1128"0Remove this unused import 'com.ex.ers.DAO.DAOs'.(ì“ØÄûÿÿÿÿ
+U
+java:S1854":Remove this useless assignment to local variable "person".(½Ñã„üÿÿÿÿ
+X
+java:S1854G";Remove this useless assignment to local variable "nothing".(“³›¨8‡È²—Ÿ.
+V	java:S125:"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+I
+java:S1481G",Remove this unused "nothing" local variable.(“³›¨8‡È²—Ÿ.

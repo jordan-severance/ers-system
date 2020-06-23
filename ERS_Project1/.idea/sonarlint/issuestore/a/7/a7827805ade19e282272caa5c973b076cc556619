@@ -1,0 +1,13 @@
+
+K
+java:S1128"0Remove this unused import 'com.ex.ers.DAO.DAOs'.(ì“ØÄûÿÿÿÿ
+G
+java:S1128"1Remove this unused import 'com.google.gson.Gson'.(–§
+T	java:S106+"9Replace this use of System.out or System.err by a logger.(€Ü¬j8šÖå¢Ÿ.
+Z	java:S106*"9Replace this use of System.out or System.err by a logger.(¸Üäûÿÿÿÿ8šÖå¢Ÿ.
+X
+java:S1128"=Remove this unused import 'com.ex.ers.utils.ConnectionUtils'.(™¤¨Çüÿÿÿÿ
+P
+java:S1128"5Remove this unused import 'com.ex.ers.DAO.PersonDAO'.(â¨¦Ğùÿÿÿÿ
+\
+java:S1128"FRemove this unused import 'com.ex.ers.utils.PostgresqlConnectionUtil'.(™Æ”¾

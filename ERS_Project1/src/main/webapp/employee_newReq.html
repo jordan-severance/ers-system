@@ -1,0 +1,53 @@
+<!--employee_newReq.html
+Chart location: H. User stories covered: M
+Form Input(s): float amount, "comment"
+JavaScript Function(s): none
+Backend Function(s): newReq(ReimbursementRequest)
+Possible Page Transfer(s): employee_homepage.html
+Comment(s):
+-->
+
+<!doctype html>
+<html>
+<head>
+    <title>Submit Reimbursement Request</title>
+    <style>
+        h2 {
+            text-align: center;
+            margin-left: 25%;
+            margin-right: 25%;
+            width : 340px;
+        } 
+        fieldset {
+            margin-left: 25%;
+            margin-right: 25%;
+            width: 300px;
+        }
+        input {
+            margin-right: 0px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div>
+<h2>Reimbursement Request</h2>
+<form name="newReq" action="NewReim" method="post">
+    <fieldset> <legend>New Reimbursement Request</legend>
+        <label>Amount: 
+            <tab></tab>
+            <input id="amount" name="amount" type="number" min="0" step="0.01"/>
+        </label>
+        <br/>
+        <br/>
+        <label>Explanation: 
+            <input id="comment" name="comment" type="text"/>
+        </label>
+        <br/>
+        <br/>
+        <input name="submit" type="submit" value="Submit Reimbursement Request">
+    </fieldset>
+</form>
+</div>
+</body>
+</html>
